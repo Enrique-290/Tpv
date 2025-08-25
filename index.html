@@ -1,21 +1,79 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TPV Productos</title>
+  <title>TPV • Demo Completa</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Drawer -->
+  <div id="drawer" class="drawer" aria-hidden="true">
+    <div class="backdrop" id="backdrop"></div>
+    <aside class="panel" role="dialog" aria-label="Menú lateral">
+      <div class="brand">
+        <div class="logo">DG</div>
+        <div>
+          <div class="brand-title">DINAMITA G...</div>
+          <div class="brand-sub">Catálogo · Backup · Notificación</div>
+        </div>
+      </div>
+      <nav class="menu" id="menu">
+        <div class="sec">Principal</div>
+        <a data-route="inventario">📦 Inventario</a>
+        <a data-route="ventas">🧾 Ventas</a>
+        <a data-route="compras">🛒 Compras</a>
+        <a data-route="ingresos">💰 Ingresos - Gastos</a>
+        <a data-route="rentas">🏷️ Rentas</a>
+        <a data-route="prestamo">🔄 Préstamo</a>
+        <div class="sec">Gestión</div>
+        <a data-route="reportes">📊 Reportes</a>
+        <a data-route="empleado">👤 Empleado</a>
+        <a data-route="clientes">👥 Clientes</a>
+        <a data-route="proveedores">🏢 Proveedores</a>
+        <div class="sec">Más</div>
+        <a data-route="vincular">🔗 Vincular Web</a>
+        <a data-route="promocion">📣 Promoción</a>
+        <a data-route="ticket">🧻 Recibo / Ticket</a>
+        <a data-route="config">⚙️ Configuración</a>
+      </nav>
+    </aside>
+  </div>
+
+  <!-- Topbar -->
   <header class="topbar">
-    <button class="hamburger" id="btnMenu"><div class="bars"><span></span><span></span><span></span></div></button>
-    <div><div class="title">Productos</div><div class="subtitle">Productos Activos</div></div>
+    <button class="hamburger" id="btnMenu" aria-label="Abrir menú" aria-controls="drawer" aria-expanded="false">
+      <div class="bars" aria-hidden="true"><span></span><span></span><span></span></div>
+    </button>
+    <div>
+      <div class="title" id="title">Productos</div>
+      <div class="subtitle" id="subtitle">Productos Activos</div>
+    </div>
+    <div class="spacer"></div>
+    <div class="search-wrap" id="searchWrap">
+      <input id="search" class="search" type="search" placeholder="Buscar producto, clave, código..." />
+      <button id="filtersBtn" class="icon-btn" title="Filtros" aria-label="Abrir filtros">⛃</button>
+    </div>
   </header>
-  <main class="content">
-    <section class="list" id="list"></section>
-  </main>
-  <div id="drawer" class="drawer"><div class="backdrop" id="backdrop"></div><aside class="panel"></aside></div>
+
+  <!-- Chips / Acciones contextuales -->
+  <div class="chips" id="chipsBar" role="toolbar"></div>
+
+  <!-- Contenido -->
+  <main class="content"><section class="list" id="list"></section></main>
+
+  <!-- Modal simple -->
+  <dialog id="modal">
+    <form method="dialog">
+      <h3 id="modalTitle">Acción</h3>
+      <div id="modalBody" class="modal-body"></div>
+      <menu>
+        <button id="btnCancel">Cancelar</button>
+        <button id="btnOk" value="ok" class="primary">Guardar</button>
+      </menu>
+    </form>
+  </dialog>
+
   <script src="app.js"></script>
 </body>
 </html>
